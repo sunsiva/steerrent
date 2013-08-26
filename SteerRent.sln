@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteerRent", "SteerRent\SteerRent.csproj", "{EA13257D-5AD6-41BF-95E5-D0D02646900D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizLayer", "BizLayer\BizLayer.csproj", "{94E1CCA7-A744-44A8-A2AF-8E7CA9469C76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{15002C83-FC97-408D-9D08-1D7116FCF476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{91B80EDD-744F-41D4-9082-2A5659897CB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA13257D-5AD6-41BF-95E5-D0D02646900D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA13257D-5AD6-41BF-95E5-D0D02646900D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA13257D-5AD6-41BF-95E5-D0D02646900D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA13257D-5AD6-41BF-95E5-D0D02646900D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E1CCA7-A744-44A8-A2AF-8E7CA9469C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E1CCA7-A744-44A8-A2AF-8E7CA9469C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E1CCA7-A744-44A8-A2AF-8E7CA9469C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E1CCA7-A744-44A8-A2AF-8E7CA9469C76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15002C83-FC97-408D-9D08-1D7116FCF476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15002C83-FC97-408D-9D08-1D7116FCF476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15002C83-FC97-408D-9D08-1D7116FCF476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15002C83-FC97-408D-9D08-1D7116FCF476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B80EDD-744F-41D4-9082-2A5659897CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B80EDD-744F-41D4-9082-2A5659897CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B80EDD-744F-41D4-9082-2A5659897CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B80EDD-744F-41D4-9082-2A5659897CB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

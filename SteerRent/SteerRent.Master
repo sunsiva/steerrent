@@ -1,0 +1,258 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SteerRent.master.cs" Inherits="SteerRent.SteerRent" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - Steer Rent</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+ <%--   <link type="text/css" href="Content/css/axure_rp_page.css" rel="Stylesheet" />
+    <link type="text/css" href="Content/css/default.css" rel="Stylesheet" />--%>
+    <link type="text/css" href="Content/style.css" rel="Stylesheet" />
+
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">     
+          <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>  
+    <webopt:BundleReference ID="BundleReference1" runat="server" Path="~/Content/css" /> 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+
+
+        
+</head>
+<body>
+    
+    <form id="Form1" runat="server">
+        <%--<div class="background">
+   <asp:menu id="NavigationMenu" CssClass="NavigationMenu"  
+        staticdisplaylevels="2" DynamicHorizontalOffset="1"
+        staticsubmenuindent="1px" MaximumDynamicDisplayLevels="4"
+        orientation="Horizontal"   
+        DynamicPopOutImageUrl="~/Images/right-arrow.gif" 
+        StaticPopOutImageUrl="~/Images/drop-arrow.gif"
+        datasourceid="MenuSource"    
+        runat="server" Height="30px">
+
+        <staticmenuitemstyle ItemSpacing="10" CssClass="staticMenuItemStyle"/>
+        <statichoverstyle CssClass="staticHoverStyle" />
+        <StaticSelectedStyle CssClass="staticMenuItemSelectedStyle"/> 
+        <DynamicMenuItemStyle CssClass="dynamicMenuItemStyle" />      
+        <dynamichoverstyle CssClass="menuItemMouseOver" />
+        <DynamicMenuStyle CssClass="menuItem" />
+        <DynamicSelectedStyle CssClass="menuItemSelected" />
+     
+        <DataBindings>        
+             <asp:MenuItemBinding DataMember="siteMapNode" 
+                NavigateUrlField="url" TextField="title"  
+                    ToolTipField="description" />
+        </DataBindings>
+
+      </asp:menu>
+    </div>--%>
+
+    <asp:TreeView ID="NavigationTreeView" runat="server" Visible="false" DataSourceID="MenuSource" />
+
+<div id="e" style="display:none">
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server" 
+                RenderCurrentNodeAsLink="true" 
+                CssClass="currentNodeStyle"
+            PathSeparator=" >> ">
+            <PathSeparatorStyle ForeColor="#5D7B9D" CssClass="currentNodeStyle" />
+            <CurrentNodeStyle ForeColor="#333333" CssClass="currentNodeStyle" />
+            <NodeStyle ForeColor="#7C6F57"  CssClass="currentNodeStyle"  />
+            <RootNodeStyle  ForeColor="#5D7B9D" CssClass="currentNodeStyle"  />
+    </asp:SiteMapPath> 
+</div>    
+
+    <asp:Panel ID="AccessKeyPanel" runat="server">
+    </asp:Panel>
+       <asp:SiteMapDataSource id="MenuSource" runat="server" StartFromCurrentNode="false" ShowStartingNode="true" />
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server" LoadScriptsBeforeUI="true">
+        <Scripts>
+            <%--Framework Scripts--%>
+            <asp:ScriptReference Name="MsAjaxBundle" />
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+            <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+            <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+            <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+            <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+            <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+            <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+            <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+            <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+            <asp:ScriptReference Name="WebFormsBundle" />
+            <%--Site Scripts--%>
+
+        </Scripts>
+    </asp:ScriptManager>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">
+                    <a id="A1" runat="server" href="~/Images/steerrent_home.png"></a>
+                </p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul style="display:none">
+                                <li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>
+                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <p>
+                                Hello, <a id="A2" runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                    <asp:LoginName ID="LoginName1" runat="server" CssClass="username" /></a>!
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+                <nav style="display:none">
+                    <ul id="menu">
+                        <li><a id="A3" runat="server" href="~/">Home</a></li>
+                        <li><a id="A4" runat="server" href="~/About.aspx">About</a></li>
+                        <li><a id="A5" runat="server" href="~/Contact.aspx">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
+
+        </asp:ContentPlaceHolder>
+         
+
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+
+<%--         <div id="outerContainer">
+
+        <div id="leftPanel">
+            <div id="interfaceControlFrame">
+                <div id="interfaceControlFrameMinimizeContainer">
+                    <a title="Collapse Controls" id="interfaceControlFrameMinimizeButton" onclick="collapse();">&nbsp;</a>
+                </div>
+                <div id="interfaceControlFrameLogoContainer">
+                    <div id="interfaceControlFrameLogoImageContainer"></div>
+                    <div id="interfaceControlFrameLogoCaptionContainer"></div>
+                </div>
+                <div id="interfaceControlFrameHeaderContainer">
+                    <ul id="interfaceControlFrameHeader">
+                    </ul>
+                </div>
+                <div id="interfaceControlFrameContainer">
+                </div>
+            </div>
+        </div>
+        <div id="rightPanel">
+            <iframe id="mainFrame" width="100%" height="100%" src="" frameborder="0"></iframe>
+        </div>
+
+    </div>
+
+    <div id="maximizePanelContainer">
+        <iframe id="expandFrame" src="resources/expand.html" width="100%" height="100%" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+    </div>--%>
+
+    <footer>
+        <%--<div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; <%: DateTime.Now.Year %> SteerRent - All rights reserved.</p>
+            </div>
+        </div>--%>
+    </footer>
+    </form>
+    <script type="text/javascript" src="Scripts/_references.js"></script>
+    <script type="text/javascript" src="Scripts/splitter.js"></script>
+    <script type="text/javascript" src="Scripts/axutils.js"></script>
+    <script type="text/javascript" src="Scripts/axprototype.js"></script>
+    <script type="text/javascript" src="Scripts/messagecenter.js"></script>
+    <script type="text/javascript" src="Scripts/data/configuration.js"></script>
+    <script type="text/javascript" src="Scripts/data/sitemap.js"></script>
+    <style type="text/css">
+
+#outerContainer {
+	width:1000px;
+	height:20000px;
+}
+
+.vsplitbar {
+	width: 3px;
+	background: #DDD;
+}
+
+#rightPanel {
+    background-color: White;
+}
+
+#leftPanel 
+{
+    /*min-width: 190px;*/
+}
+
+.splitterMask
+{
+   position:absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   background-image: url(images/transparent.gif);
+   z-index: 20000;
+}
+
+    .WaterMarkedTextBox
+    {
+	    color: gray;
+        font-style:italic;
+	    display: inline;
+    }
+
+    </style>
+
+
+<%--    <link type="text/css" rel="Stylesheet" href="Content/css/sitemap.css" />
+    <script type="text/javascript" src="Scripts/data/sitemap.js"></script>
+    <link type="text/css" rel="Stylesheet" href="Content/css/page_notes.css" />
+    <script type="text/javascript" src="Scripts/data/page_notes.js"></script>--%>
+    <script lang="javascript" type="text/javascript">
+
+        function navigateTo(url) {
+            window.location = url;
+        }
+
+        function KeyPress(obj, waterMarkText) {
+            if ($(obj).val() == waterMarkText) {
+                $(obj).val('');
+                $(obj).removeClass('WaterMarkedTextBox');
+            }
+
+        }
+
+        function Blur(obj, waterMarkText) {
+            if ($(obj).val().length == 0) {
+                $(obj).val(waterMarkText);
+                $(obj).addClass('WaterMarkedTextBox');
+            }
+            else {
+                $(obj).removeClass('WaterMarkedTextBox');
+            }
+        }
+    </script>
+
+</body>
+</html>
