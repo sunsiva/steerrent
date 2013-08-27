@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SteerRent.master.cs" Inherits="SteerRent.SteerRent" %>
+<<%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
 <!DOCTYPE html>
 
@@ -9,14 +10,14 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
- <%--   <link type="text/css" href="Content/css/axure_rp_page.css" rel="Stylesheet" />
-    <link type="text/css" href="Content/css/default.css" rel="Stylesheet" />--%>
-    <link type="text/css" href="Content/style.css" rel="Stylesheet" />
+    <link type="text/css" href="Content/css/axure_rp_page.css" rel="Stylesheet" />
+    <link type="text/css" href="Content/css/default.css" rel="Stylesheet" />
+    <link type="text/css" href="Views/Style/style.css" rel="Stylesheet" />
 
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
-    <webopt:BundleReference ID="BundleReference1" runat="server" Path="~/Content/css" /> 
+    <%--<webopt:BundleReference ID="BundleReference1" runat="server" Path="~/Content/css" /> --%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
 
@@ -27,7 +28,7 @@
 </head>
 <body>
     
-    <form id="Form1" runat="server">
+    <form id="Form1" runat="server" onload="Page_Load">
         <%--<div class="background">
    <asp:menu id="NavigationMenu" CssClass="NavigationMenu"  
         staticdisplaylevels="2" DynamicHorizontalOffset="1"
@@ -230,6 +231,23 @@
     <link type="text/css" rel="Stylesheet" href="Content/css/page_notes.css" />
     <script type="text/javascript" src="Scripts/data/page_notes.js"></script>--%>
     <script lang="javascript" type="text/javascript">
+
+        $(document).ready
+        (
+          function () {
+              //get an array of DOM elements matching the input.type text to focus
+              var focusElements = document.getElementsByTagName("input");
+              
+              for(var i=0; i<focusElements.length;i++)
+              {
+                  if (focusElements[i].type == 'text') {
+                      focusElements[i].focus();
+                      return;
+                  }
+          }
+          }
+        );
+
 
         function navigateTo(url) {
             window.location = url;

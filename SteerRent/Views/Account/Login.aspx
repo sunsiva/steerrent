@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/SteerRent.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SteerRent.Account.Login" %>
 <%--<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>--%>
 
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+
   <style type="text/css">
           .WaterMarkedTextBoxPwd
     {
@@ -54,21 +56,22 @@
 
                     <div class="lgn-frm">
                         <p>
-                            <input name="username" value="Username" type="text">
+                            <input placeholder="Username" id="txtUserName" type="text" runat="server" />    
                         </p>
                         <p>
-                            <input name="password" value="Password" type="text"></p>
+                            <input  placeholder="Password" name="password" runat="server" value="Password" type="password" /></p>
 
                         <div class="frgt">
                             <span class="left padd5">
-                                <input id="f" type="checkbox" value="checkbox"><label>Remember me</label></span>
-                            <label class="right padd10">Forgot Password</label>
+                                <input  id="chkRememberMe" type="checkbox" value="checkbox"><label>Remember me</label></span>
+                            <a class="right padd10" href="<%:  %>"ForgotPassword.aspx" target="_parent">Forgot Password</a>
+                           
                         </div>
                         <div class="clear"></div>
                         <p class="button">
                             <input class="btn_login" name="login" type="button" value="Login"></p>
-
-                    </div>
+                        
+                    </div>  
                 </div>
 
             </div>
